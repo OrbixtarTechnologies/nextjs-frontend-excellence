@@ -1,5 +1,24 @@
 # Changelog
 
+## 4.0.0
+- Added Next.js live docs verification layer with new agent `nextjs-latest-docs-researcher`.
+- Added new skill `nextjs-live-docs-verifier` for source-backed API/library checks.
+- Added docs sources registry `plugins/nextjs-uiux-excellence/tools/LATEST_DOCS_SOURCES.md`.
+- Added repository policy `NEXTJS_LIVE_DOCS_POLICY.md` and helper script `tools/fetch-latest-docs.sh`.
+- Updated hooks to enforce latest-doc verification and source-backed output.
+- Bumped plugin version to 4.0.0 with docs-accuracy keywords.
+
+## 3.3.0
+- Added repository-level VS Code workspace layout: `.vscode/settings.json`, `extensions.json`, `tasks.json`, `launch.json`, and snippets.
+- Added `VSCODE_SETUP.md` for workspace usage and conventions.
+- Updated root README with VS Code workspace section.
+- Bumped plugin version to 3.3.0 and added `vscode` keyword.
+
+## 3.2.0
+- Added repository-level documentation files at project root: `README.md`, `INSTALLATION.md`, `USE_CASES.md`, `ARCHITECTURE.md`, `CONTRIBUTING.md`.
+- Declared single merged main branch policy at repository level.
+- Updated plugin ownership metadata to Orbixtar Technologies and bumped version to 3.2.0.
+
 ## 3.1.0
 - Added detailed documentation set under `docs/`:
   - `INSTALLATION.md`

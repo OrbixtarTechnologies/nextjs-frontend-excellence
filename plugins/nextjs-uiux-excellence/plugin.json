@@ -1,9 +1,9 @@
 {
   "name": "nextjs-uiux-excellence",
-  "description": "Enterprise-grade Next.js excellence plugin with detailed docs, broad design and architecture transformations, top UI kits, revamp workflows, and strict scope obedience.",
-  "version": "3.1.0",
+  "description": "Enterprise-grade Next.js excellence system by Orbixtar Technologies with live latest-doc verification, broad architecture transformations, revamp workflows, strict scope obedience, and professional workspace standards.",
+  "version": "4.0.0",
   "author": {
-    "name": "Usman Liaqat"
+    "name": "Orbixtar Technologies"
   },
   "license": "MIT",
   "keywords": [
@@ -30,7 +30,11 @@
     "scope-aware",
     "architecture",
     "blueprints",
-    "revamp-mode"
+    "revamp-mode",
+    "vscode",
+    "latest-docs",
+    "docs-verification",
+    "nextjs-api-accuracy"
   ],
   "agents": "agents/",
   "skills": [

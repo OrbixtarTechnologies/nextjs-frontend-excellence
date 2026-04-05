@@ -2,11 +2,11 @@
   "hooks": [
     {
       "event": "pre-task",
-      "command": "echo '[nextjs-uiux-excellence] Parse scope literally; if broad upgrade/revamp is requested, choose architecture blueprint + design strategy before edits.'"
+      "command": "echo '[nextjs-uiux-excellence] Parse scope and verify latest official docs for Next.js/APIs/libs before implementation decisions.'"
     },
     {
       "event": "post-task",
-      "command": "echo '[nextjs-uiux-excellence] Verify delivered scope, chosen blueprint consistency, and truthful progress across all requested surfaces.'"
+      "command": "echo '[nextjs-uiux-excellence] Confirm outputs are source-backed to latest docs, with no deprecated or guessed API usage.'"
     }
   ]
 }

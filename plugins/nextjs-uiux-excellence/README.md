@@ -98,3 +98,15 @@ This plugin now includes an explicit architecture-and-strategy layer for large r
 - Enterprise dashboard modernization and consistency hardening.
 - Marketing/product UI unification with shared design tokens.
 - Partial-scope redesign with strict boundaries and out-of-scope reporting.
+
+
+## Ownership and repository mode
+- Built and maintained by **Orbixtar Technologies**.
+- Repository distribution follows a single merged main branch model with root-level documentation.
+
+
+## Live latest-docs enforcement
+- Agent: `agents/nextjs-latest-docs-researcher.agent.md`
+- Skill: `skills/nextjs-live-docs-verifier/SKILL.md`
+- Sources registry: `tools/LATEST_DOCS_SOURCES.md`
+- Repository policy: `NEXTJS_LIVE_DOCS_POLICY.md`
