@@ -1,0 +1,32 @@
+# Changelog
+
+## 3.3.0
+- Added repository-level VS Code workspace layout: `.vscode/settings.json`, `extensions.json`, `tasks.json`, `launch.json`, and snippets.
+- Added `VSCODE_SETUP.md` for workspace usage and conventions.
+- Updated root README with VS Code workspace section.
+- Bumped plugin version to 3.3.0 and added `vscode` keyword.
+
+## 3.2.0
+- Added repository-level documentation files at project root: `README.md`, `INSTALLATION.md`, `USE_CASES.md`, `ARCHITECTURE.md`, `CONTRIBUTING.md`.
+- Declared single merged main branch policy at repository level.
+- Updated plugin ownership metadata to Orbixtar Technologies and bumped version to 3.2.0.
+
+## 3.1.0
+- Added detailed documentation set under `docs/`:
+  - `INSTALLATION.md`
+  - `QUICKSTART.md`
+  - `USE_CASES.md`
+  - `FILE_STRUCTURE.md`
+- Expanded README with documentation index, detailed install flow, and practical use-case references.
+- Bumped plugin version to 3.1.0.
+
+## 3.0.0
+- Added architecture blueprints and design strategies guides.
+- Added broader design + architecture overhaul skill.
+- Enforced blueprint/strategy checks in hooks.
+
+## 2.1.0
+- Added revamp-from-scratch and strict scope-obedience contracts.
+
+## 2.0.0
+- Expanded agents and skills for professional multi-kit delivery.

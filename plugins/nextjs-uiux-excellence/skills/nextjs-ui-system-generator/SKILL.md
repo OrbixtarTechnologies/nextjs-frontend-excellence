@@ -5,4 +5,18 @@ description: "Inspects a Next.js repository and generates the required repo-leve
 
 # Next.js UI System Generator
 
-Inspect the active repository and generate only the repo-level frontend Copilot assets that are justified by the repository.
+Inspect the active repository and generate only the repo-level frontend Copilot assets justified by the repository.
+
+## Required output
+- UI kit recommendation (shadcn/MUI/Antd/Chakra/Mantine/NextUI)
+- layout archetypes (marketing/app/docs/auth)
+- shared primitives and token strategy
+- route-level implementation roadmap
+
+
+## Broader architecture output
+For major transformations, include:
+- selected blueprint + strategy references
+- route-group and module migration map
+- design token and component governance plan
+- risk register for phased rollout
