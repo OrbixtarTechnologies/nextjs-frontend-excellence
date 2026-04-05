@@ -15,6 +15,16 @@ Build premium, truthful, accessible Next.js UI that feels launch-ready and align
 - Produce responsive and professional layouts across major breakpoints.
 - Avoid decorative bloat; prioritize clarity, hierarchy, and conversion-focused UX.
 
+## Dashboard-from-scratch protocol
+When the user explicitly asks to **create** or **upgrade existing pages into a proper functional dashboard from scratch**:
+- Treat this as replacement mode for dashboard surfaces and ignore prior visual design choices.
+- Ask a short decision question to select a single UI kit before implementation (shadcn/ui, MUI, Ant Design, Chakra UI, Mantine, NextUI/HeroUI).
+- Ask for theme configuration for the selected kit and provide defaults if the user does not specify (primary color, radius, typography scale, light/dark behavior).
+- Install and wire the **actual selected UI kit** (dependencies + provider/setup), not a simulated lookalike.
+- Deliver complete dashboard foundations: auth pages, dashboard layout shell, kit-native sidebar, kit-native header/topbar, and structured page content region.
+- Migrate existing business content into the new dashboard sections while preserving real functionality.
+- Keep output modern, clean, and strongly structured using the selected kit conventions.
+
 ## Output contract
 1. Verified Facts
 2. What Was Implemented For Real
