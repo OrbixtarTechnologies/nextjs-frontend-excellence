@@ -110,3 +110,10 @@ This plugin now includes an explicit architecture-and-strategy layer for large r
 - Skill: `skills/nextjs-live-docs-verifier/SKILL.md`
 - Sources registry: `tools/LATEST_DOCS_SOURCES.md`
 - Repository policy: `NEXTJS_LIVE_DOCS_POLICY.md`
+
+
+## Post verification and release tooling
+- Integrity: `bash tools/validate-plugin-integrity.sh`
+- Full suite: `bash tools/post-verification-suite.sh`
+- Report: `bash tools/generate-plugin-report.sh`
+- Operations doc: `docs/OPERATIONS.md`

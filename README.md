@@ -34,3 +34,8 @@ Primary package location:
 ## Live docs accuracy policy
 - See `NEXTJS_LIVE_DOCS_POLICY.md` for mandatory latest-doc verification rules.
 - Use `tools/fetch-latest-docs.sh` to quickly inspect current docs endpoints.
+
+
+## Post-verification toolkit
+- `TOOLS.md` documents integrity checks, post-verification, docs fetch, and report generation.
+- Preferred command: `bash tools/post-verification-suite.sh`.

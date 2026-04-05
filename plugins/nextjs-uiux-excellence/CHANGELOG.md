@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.0.0
+- Added major professional tooling suite: integrity validator, post-verification suite, and report generator scripts.
+- Added operations docs (`TOOLS.md`, `plugins/.../docs/OPERATIONS.md`) and VS Code tasks for verification/reporting.
+- Updated hooks to include integrity/post-verification commands.
+- Bumped plugin version to 5.0.0 with release-tooling keywords.
+
 ## 4.0.0
 - Added Next.js live docs verification layer with new agent `nextjs-latest-docs-researcher`.
 - Added new skill `nextjs-live-docs-verifier` for source-backed API/library checks.

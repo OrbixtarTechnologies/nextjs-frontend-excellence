@@ -41,6 +41,26 @@
       "command": "npm run test",
       "group": "test",
       "problemMatcher": []
+    },
+    {
+      "label": "Validate plugin integrity",
+      "type": "shell",
+      "command": "bash tools/validate-plugin-integrity.sh",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Post verification suite",
+      "type": "shell",
+      "command": "bash tools/post-verification-suite.sh",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Generate plugin report",
+      "type": "shell",
+      "command": "bash tools/generate-plugin-report.sh",
+      "problemMatcher": []
     }
   ]
 }

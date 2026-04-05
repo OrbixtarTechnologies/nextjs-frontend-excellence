@@ -1,7 +1,7 @@
 {
   "name": "nextjs-uiux-excellence",
-  "description": "Enterprise-grade Next.js excellence system by Orbixtar Technologies with live latest-doc verification, broad architecture transformations, revamp workflows, strict scope obedience, and professional workspace standards.",
-  "version": "4.0.0",
+  "description": "Major professional Next.js excellence system by Orbixtar Technologies with advanced agents/skills, live docs verification, post-verification tooling, and enterprise workflow governance.",
+  "version": "5.0.0",
   "author": {
     "name": "Orbixtar Technologies"
   },
@@ -34,7 +34,10 @@
     "vscode",
     "latest-docs",
     "docs-verification",
-    "nextjs-api-accuracy"
+    "nextjs-api-accuracy",
+    "post-verification",
+    "integrity-checks",
+    "release-tooling"
   ],
   "agents": "agents/",
   "skills": [

@@ -2,11 +2,11 @@
   "hooks": [
     {
       "event": "pre-task",
-      "command": "echo '[nextjs-uiux-excellence] Parse scope and verify latest official docs for Next.js/APIs/libs before implementation decisions.'"
+      "command": "echo '[nextjs-uiux-excellence] Pre-check scope + latest docs, then run integrity baseline: bash tools/validate-plugin-integrity.sh'"
     },
     {
       "event": "post-task",
-      "command": "echo '[nextjs-uiux-excellence] Confirm outputs are source-backed to latest docs, with no deprecated or guessed API usage.'"
+      "command": "echo '[nextjs-uiux-excellence] Run post-verification before completion: bash tools/post-verification-suite.sh'"
     }
   ]
 }
