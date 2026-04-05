@@ -1,0 +1,30 @@
+{
+  "Next.js Server Component": {
+    "scope": "typescriptreact,javascriptreact",
+    "prefix": "nxserver",
+    "body": [
+      "type Props = {",
+      "  // props",
+      "};",
+      "",
+      "export default function ${1:Page}(props: Props) {",
+      "  return (",
+      "    <main className=\"min-h-screen\">${2}</main>",
+      "  );",
+      "}"
+    ],
+    "description": "Create a typed Next.js server component"
+  },
+  "Next.js Route Handler": {
+    "scope": "typescript,javascript",
+    "prefix": "nxroute",
+    "body": [
+      "import { NextResponse } from \"next/server\";",
+      "",
+      "export async function ${1:GET}() {",
+      "  return NextResponse.json({ ok: true });",
+      "}"
+    ],
+    "description": "Create a Next.js route handler"
+  }
+}
