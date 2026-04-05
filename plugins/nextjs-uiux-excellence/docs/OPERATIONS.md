@@ -14,3 +14,6 @@ Guarantee each release is professional, verifiable, and aligned with policy.
 A release should not be marked complete unless post-verification passes and version/changelog are synchronized.
 
 Use browser verification for UI-heavy tasks to reject false positives and validate auth-protected surfaces.
+
+## Release gate
+A release should not be marked complete unless post-verification passes and version/changelog are synchronized.

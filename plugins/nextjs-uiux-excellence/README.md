@@ -131,3 +131,10 @@ This plugin now includes an explicit architecture-and-strategy layer for large r
 - screenshot + DOM snapshot artifacts
 - baseline-hash comparison mode
 - JSON + HTML verification reports
+
+
+## Post verification and release tooling
+- Integrity: `bash tools/validate-plugin-integrity.sh`
+- Full suite: `bash tools/post-verification-suite.sh`
+- Report: `bash tools/generate-plugin-report.sh`
+- Operations doc: `docs/OPERATIONS.md`

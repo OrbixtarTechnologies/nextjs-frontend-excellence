@@ -20,3 +20,4 @@ This repository includes a professional verification and reporting toolkit for t
 3. `node tools/browser-verify.mjs browser-verify.config.json`
 4. `node tools/browser-verify-report.mjs`
 5. `bash tools/generate-plugin-report.sh`
+3. `bash tools/generate-plugin-report.sh`

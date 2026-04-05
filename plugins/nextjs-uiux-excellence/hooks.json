@@ -7,6 +7,11 @@
     {
       "event": "post-task",
       "command": "echo '[nextjs-uiux-excellence] Run browser verification + HTML report to reject false UI claims before completion.'"
+      "command": "echo '[nextjs-uiux-excellence] Pre-check scope + latest docs, then run integrity baseline: bash tools/validate-plugin-integrity.sh'"
+    },
+    {
+      "event": "post-task",
+      "command": "echo '[nextjs-uiux-excellence] Run post-verification before completion: bash tools/post-verification-suite.sh'"
     }
   ]
 }
