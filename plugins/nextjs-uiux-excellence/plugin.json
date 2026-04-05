@@ -1,9 +1,9 @@
 {
   "name": "nextjs-uiux-excellence",
-  "description": "Global Next.js UI/UX excellence plugin with full AI engineering team workflows, premium design-system standards, repo-aware generation, and truthful product delivery rules.",
-  "version": "1.0.0",
+  "description": "Next-version professional Next.js UI/UX excellence system by Orbixtar Technologies with advanced auth-aware browser verification, baseline visual gating, live docs checks, and enterprise release tooling.",
+  "version": "7.0.0",
   "author": {
-    "name": "Usman Liaqat"
+    "name": "Orbixtar Technologies"
   },
   "license": "MIT",
   "keywords": [
@@ -19,7 +19,30 @@
     "plugin",
     "shadcn",
     "radix",
-    "tailwind"
+    "tailwind",
+    "mui",
+    "antd",
+    "chakra",
+    "mantine",
+    "layout-systems",
+    "design-system",
+    "revamp",
+    "scope-aware",
+    "architecture",
+    "blueprints",
+    "revamp-mode",
+    "vscode",
+    "latest-docs",
+    "docs-verification",
+    "nextjs-api-accuracy",
+    "post-verification",
+    "integrity-checks",
+    "release-tooling",
+    "browser-verification",
+    "auth-aware-testing",
+    "visual-regression-proof",
+    "baseline-visual-gate",
+    "browser-reporting"
   ],
   "agents": "agents/",
   "skills": [

@@ -1,0 +1,87 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Install deps",
+      "type": "shell",
+      "command": "npm install",
+      "problemMatcher": []
+    },
+    {
+      "label": "Dev server",
+      "type": "shell",
+      "command": "npm run dev",
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "Build",
+      "type": "shell",
+      "command": "npm run build",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Lint",
+      "type": "shell",
+      "command": "npm run lint",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Typecheck",
+      "type": "shell",
+      "command": "npm run typecheck",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Test",
+      "type": "shell",
+      "command": "npm run test",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Validate plugin integrity",
+      "type": "shell",
+      "command": "bash tools/validate-plugin-integrity.sh",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Post verification suite",
+      "type": "shell",
+      "command": "bash tools/post-verification-suite.sh",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Generate plugin report",
+      "type": "shell",
+      "command": "bash tools/generate-plugin-report.sh",
+      "problemMatcher": []
+    },
+    {
+      "label": "Browser verify (config)",
+      "type": "shell",
+      "command": "node tools/browser-verify.mjs browser-verify.config.json",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Browser verify (example config)",
+      "type": "shell",
+      "command": "node tools/browser-verify.mjs browser-verify.config.example.json",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Browser verify (strict visual gate)",
+      "type": "shell",
+      "command": "node tools/browser-verify.mjs browser-verify.config.json",
+      "group": "test",
+      "problemMatcher": []
+    }
+  ]
+}
