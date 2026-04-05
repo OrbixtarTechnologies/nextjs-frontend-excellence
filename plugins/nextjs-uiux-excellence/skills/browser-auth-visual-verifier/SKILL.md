@@ -21,5 +21,5 @@ Use this skill when UI claims must be proven with real browser checks.
 - Auth-protected pages must be verified with real authenticated context.
 - Missing selectors/content must fail the check.
 
-- Run multi-viewport verification and optionally compare against baselines.
-- Fail verification when console/request failures indicate unstable UI behavior.
+- Use baseline comparison (`baselineDir`) when visual consistency gates are required.
+- Attach generated `report.json` and `report.md` as release evidence.

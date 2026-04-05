@@ -1,25 +1,33 @@
-# Browser Verification (Auth-Aware, vNext)
+# Browser Verification (Auth-Aware, Design-Grade)
 
-This repository supports advanced browser-level verification to ensure UI claims are real, complete, and regression-safe.
+This repository includes a next-version browser verification system to validate UI/UX claims with real rendered evidence.
 
-## Files
-- `tools/browser-verify.mjs` — browser verification runner (Playwright based)
-- `browser-verify.config.example.json` — config template for routes/auth/viewports/migrations/baselines
-- `browser-verify.config.json` — active config
-- `plugins/.../agents/browser-visual-verification-specialist.agent.md`
-- `plugins/.../skills/browser-auth-visual-verifier/SKILL.md`
+## Core tool
+- `tools/browser-verify.mjs`
 
-## Advanced checks
-- Multi-viewport verification (mobile/tablet/desktop)
-- Required selectors and required text assertions
-- HTTP status and request-failure checks
-- Console-error detection
-- Screenshot artifact generation
-- Baseline hash comparison and optional strict diff failure
+## What it verifies
+- Route reachability and render status.
+- Required selectors and required text.
+- Forbidden selectors (negative checks).
+- Auth-protected pages using local session cookie or storage state.
+- Screenshot capture per route.
+- Baseline hash comparison for visual drift detection.
 
-## Supported auth modes
-1. Local session cookie (`LOCAL_SESSION_COOKIE` env var)
-2. Temp-user provisioning command (e.g., migration + seed)
+## Auth support
+1. `session-cookie` mode using `LOCAL_SESSION_COOKIE` (or custom env key)
+2. `storage-state` mode using existing Playwright storage state file
+3. Temp-user/migration setup via commands in config
 
-## Why this exists
-To reject false claims and catch missing/incorrect UI even when it superficially looks complete.
+## Artifacts
+- `artifacts/browser-verification/*.png`
+- `artifacts/browser-verification/report.json`
+- `artifacts/browser-verification/report.md`
+- optional baseline images in `artifacts/browser-baseline/`
+
+## Usage
+1. Copy `browser-verify.config.example.json` to `browser-verify.config.json`.
+2. Set auth/migration commands and routes for your app.
+3. Run: `node tools/browser-verify.mjs browser-verify.config.json`.
+
+## Anti-false-claim rule
+UI tasks are not complete unless browser verification artifacts prove requested public/auth routes and checks pass.

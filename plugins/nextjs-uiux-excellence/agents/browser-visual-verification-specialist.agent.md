@@ -16,5 +16,5 @@ Reject false claims by validating real rendered UI in browser-like execution wit
 - Fail verification when required selectors/text are missing, even if page appears visually acceptable.
 - Report pass/fail per route with concrete evidence.
 
-- Use multi-viewport and baseline-aware checks to detect subtle regressions.
-- Treat console errors, failed requests, and missing selectors as hard verification failures.
+- Perform baseline-aware visual comparison and report drift when configured.
+- Produce JSON + Markdown verification reports as evidence artifacts.

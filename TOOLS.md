@@ -8,8 +8,7 @@ This repository includes a professional verification and reporting toolkit for t
 - `tools/fetch-latest-docs.sh` — inspects official docs endpoints for live-docs workflows.
 
 ## Browser/visual tools
-- `tools/browser-verify.mjs [config.json]` — verifies routes in real browser context, including auth-protected pages.
-  - supports viewports, console/request checks, and baseline hash comparisons.
+- `tools/browser-verify.mjs [config.json]` — verifies routes in real browser context, including auth-protected pages, baseline hash checks, and report generation.
 
 ## Reporting tools
 - `tools/generate-plugin-report.sh [output.md]` — generates a system summary report.
