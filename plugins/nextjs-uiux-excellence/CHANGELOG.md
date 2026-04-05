@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.0.0
+- Added Next.js live docs verification layer with new agent `nextjs-latest-docs-researcher`.
+- Added new skill `nextjs-live-docs-verifier` for source-backed API/library checks.
+- Added docs sources registry `plugins/nextjs-uiux-excellence/tools/LATEST_DOCS_SOURCES.md`.
+- Added repository policy `NEXTJS_LIVE_DOCS_POLICY.md` and helper script `tools/fetch-latest-docs.sh`.
+- Updated hooks to enforce latest-doc verification and source-backed output.
+- Bumped plugin version to 4.0.0 with docs-accuracy keywords.
+
 ## 3.3.0
 - Added repository-level VS Code workspace layout: `.vscode/settings.json`, `extensions.json`, `tasks.json`, `launch.json`, and snippets.
 - Added `VSCODE_SETUP.md` for workspace usage and conventions.

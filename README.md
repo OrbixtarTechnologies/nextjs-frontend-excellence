@@ -29,3 +29,8 @@ Primary package location:
 ## VS Code professional workspace
 - Full workspace configuration is included in `.vscode/`.
 - Setup guide: `VSCODE_SETUP.md`.
+
+
+## Live docs accuracy policy
+- See `NEXTJS_LIVE_DOCS_POLICY.md` for mandatory latest-doc verification rules.
+- Use `tools/fetch-latest-docs.sh` to quickly inspect current docs endpoints.

@@ -1,7 +1,7 @@
 {
   "name": "nextjs-uiux-excellence",
-  "description": "Enterprise-grade Next.js excellence plugin and repository workspace by Orbixtar Technologies, featuring broad architecture transformations, strict scope obedience, revamp workflows, and professional VS Code setup support.",
-  "version": "3.3.0",
+  "description": "Enterprise-grade Next.js excellence system by Orbixtar Technologies with live latest-doc verification, broad architecture transformations, revamp workflows, strict scope obedience, and professional workspace standards.",
+  "version": "4.0.0",
   "author": {
     "name": "Orbixtar Technologies"
   },
@@ -31,7 +31,10 @@
     "architecture",
     "blueprints",
     "revamp-mode",
-    "vscode"
+    "vscode",
+    "latest-docs",
+    "docs-verification",
+    "nextjs-api-accuracy"
   ],
   "agents": "agents/",
   "skills": [
