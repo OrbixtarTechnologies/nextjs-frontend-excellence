@@ -1,5 +1,19 @@
 # Changelog
 
+## 7.0.0
+- Upgraded browser verification to v2 with style assertions, DOM snapshots, baseline-hash checks, and UI-login auth mode support.
+- Added `tools/browser-verify-report.mjs` to generate HTML evidence reports.
+- Expanded browser config templates and operations/workflow docs for professional release validation.
+- Updated VS Code tasks and hooks for browser verification/report execution.
+- Bumped plugin version to 7.0.0 with verification-report keywords.
+
+## 6.0.0
+- Added auth-aware browser verification system with `tools/browser-verify.mjs` and configurable routes/auth/migration setup.
+- Added browser verifier agent (`browser-visual-verification-specialist`) and skill (`browser-auth-visual-verifier`).
+- Added `BROWSER_VERIFICATION.md` and example config template for evidence-driven UI validation.
+- Expanded operations/tasks/hooks to include browser verification and anti-false-claim checks.
+- Bumped plugin version to 6.0.0 with browser/auth verification keywords.
+
 ## 5.0.0
 - Added major professional tooling suite: integrity validator, post-verification suite, and report generator scripts.
 - Added operations docs (`TOOLS.md`, `plugins/.../docs/OPERATIONS.md`) and VS Code tasks for verification/reporting.

@@ -61,6 +61,27 @@
       "type": "shell",
       "command": "bash tools/generate-plugin-report.sh",
       "problemMatcher": []
+    },
+    {
+      "label": "Browser verify (config)",
+      "type": "shell",
+      "command": "node tools/browser-verify.mjs browser-verify.config.json",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Browser verify (example config)",
+      "type": "shell",
+      "command": "node tools/browser-verify.mjs browser-verify.config.example.json",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Browser verification HTML report",
+      "type": "shell",
+      "command": "node tools/browser-verify-report.mjs",
+      "group": "test",
+      "problemMatcher": []
     }
   ]
 }

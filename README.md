@@ -39,3 +39,13 @@ Primary package location:
 ## Post-verification toolkit
 - `TOOLS.md` documents integrity checks, post-verification, docs fetch, and report generation.
 - Preferred command: `bash tools/post-verification-suite.sh`.
+
+
+## Browser verification and anti-false-claim checks
+- `BROWSER_VERIFICATION.md` defines auth-aware browser validation workflow.
+- Browser tool: `node tools/browser-verify.mjs browser-verify.config.json`.
+- Supports local session cookie and temp-user/migration setup for auth-protected routes.
+
+
+## Browser verifier v2
+- Supports auth-protected checks, style assertions, DOM snapshots, baseline hash comparison, and HTML evidence reporting.

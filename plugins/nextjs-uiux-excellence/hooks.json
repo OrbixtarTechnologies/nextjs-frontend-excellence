@@ -2,6 +2,11 @@
   "hooks": [
     {
       "event": "pre-task",
+      "command": "echo '[nextjs-uiux-excellence] Pre-check scope/latest-docs + integrity. For UI work prepare browser-verify config and auth strategy.'"
+    },
+    {
+      "event": "post-task",
+      "command": "echo '[nextjs-uiux-excellence] Run browser verification + HTML report to reject false UI claims before completion.'"
       "command": "echo '[nextjs-uiux-excellence] Pre-check scope + latest docs, then run integrity baseline: bash tools/validate-plugin-integrity.sh'"
     },
     {
