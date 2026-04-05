@@ -9,7 +9,7 @@ This repository includes a professional verification and reporting toolkit for t
 
 ## Browser/visual tools
 - `tools/browser-verify.mjs [config.json]` — verifies routes in real browser context, including auth-protected pages.
-- `tools/browser-verify-report.mjs [report.json] [report.html]` — generates a visual HTML report from JSON results.
+  - supports viewports, console/request checks, and baseline hash comparisons.
 
 ## Reporting tools
 - `tools/generate-plugin-report.sh [output.md]` — generates a system summary report.
@@ -17,7 +17,4 @@ This repository includes a professional verification and reporting toolkit for t
 ## Recommended sequence
 1. `bash tools/validate-plugin-integrity.sh`
 2. `bash tools/post-verification-suite.sh`
-3. `node tools/browser-verify.mjs browser-verify.config.json`
-4. `node tools/browser-verify-report.mjs`
-5. `bash tools/generate-plugin-report.sh`
 3. `bash tools/generate-plugin-report.sh`

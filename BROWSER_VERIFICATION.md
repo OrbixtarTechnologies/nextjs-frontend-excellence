@@ -1,25 +1,25 @@
-# Browser Verification (Auth-Aware) v2
+# Browser Verification (Auth-Aware, vNext)
 
-This repository includes a next-version browser verifier focused on **evidence-based UI quality** and rejection of false claims.
-
-## Core capabilities
-- Auth-aware route verification (session cookie or UI login flow).
-- Optional migration + temp-user provisioning hooks.
-- Required selector/text/style checks per route.
-- Full-page screenshot capture and DOM snapshot artifacts.
-- Optional baseline-hash comparison for visual change detection.
-- Structured JSON report + optional HTML report generation.
+This repository supports advanced browser-level verification to ensure UI claims are real, complete, and regression-safe.
 
 ## Files
-- `tools/browser-verify.mjs`
-- `tools/browser-verify-report.mjs`
-- `browser-verify.config.json`
-- `browser-verify.config.example.json`
+- `tools/browser-verify.mjs` — browser verification runner (Playwright based)
+- `browser-verify.config.example.json` — config template for routes/auth/viewports/migrations/baselines
+- `browser-verify.config.json` — active config
 - `plugins/.../agents/browser-visual-verification-specialist.agent.md`
 - `plugins/.../skills/browser-auth-visual-verifier/SKILL.md`
 
-## Typical flow
-1. Configure routes/auth in `browser-verify.config.json`.
-2. Run `node tools/browser-verify.mjs browser-verify.config.json`.
-3. Generate readable report: `node tools/browser-verify-report.mjs`.
-4. Fail completion if required checks fail.
+## Advanced checks
+- Multi-viewport verification (mobile/tablet/desktop)
+- Required selectors and required text assertions
+- HTTP status and request-failure checks
+- Console-error detection
+- Screenshot artifact generation
+- Baseline hash comparison and optional strict diff failure
+
+## Supported auth modes
+1. Local session cookie (`LOCAL_SESSION_COOKIE` env var)
+2. Temp-user provisioning command (e.g., migration + seed)
+
+## Why this exists
+To reject false claims and catch missing/incorrect UI even when it superficially looks complete.

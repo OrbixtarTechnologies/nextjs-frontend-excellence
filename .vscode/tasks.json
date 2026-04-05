@@ -77,9 +77,9 @@
       "problemMatcher": []
     },
     {
-      "label": "Browser verification HTML report",
+      "label": "Browser verify (update baselines)",
       "type": "shell",
-      "command": "node tools/browser-verify-report.mjs",
+      "command": "node tools/browser-verify.mjs browser-verify.config.json",
       "group": "test",
       "problemMatcher": []
     }

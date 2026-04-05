@@ -125,16 +125,4 @@ This plugin now includes an explicit architecture-and-strategy layer for large r
 - Tool: `node tools/browser-verify.mjs browser-verify.config.json`
 - Policy: reject false claims using screenshot + selector/text evidence for both public and auth-protected pages.
 
-
-### Browser verifier v2 features
-- selector/text/style assertions
-- screenshot + DOM snapshot artifacts
-- baseline-hash comparison mode
-- JSON + HTML verification reports
-
-
-## Post verification and release tooling
-- Integrity: `bash tools/validate-plugin-integrity.sh`
-- Full suite: `bash tools/post-verification-suite.sh`
-- Report: `bash tools/generate-plugin-report.sh`
-- Operations doc: `docs/OPERATIONS.md`
+- Browser verification now supports multi-viewport checks, console/request failure detection, and baseline hash comparison.

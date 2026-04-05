@@ -9,10 +9,17 @@ function log(msg) {
   process.stdout.write(`[browser-verify] ${msg}\n`);
 }
 
-function readConfig(configPath) {
-  const resolved = path.resolve(configPath);
-  if (!fs.existsSync(resolved)) throw new Error(`Config not found: ${resolved}`);
-  return JSON.parse(fs.readFileSync(resolved, 'utf8'));
+function readJson(filePath) {
+  return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+}
+
+function writeJson(filePath, data) {
+  fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+}
+
+function sha256File(filePath) {
+  const data = fs.readFileSync(filePath);
+  return crypto.createHash('sha256').update(data).digest('hex');
 }
 
 function runCmd(label, cmd) {
@@ -21,40 +28,16 @@ function runCmd(label, cmd) {
   execSync(cmd, { stdio: 'inherit', env: process.env });
 }
 
-function sha256(filePath) {
-  const data = fs.readFileSync(filePath);
-  return crypto.createHash('sha256').update(data).digest('hex');
-}
-
-async function maybeLoginAndSaveState(context, page, config, outDir) {
-  const auth = config.auth || {};
-  if (auth.mode !== 'ui-login') return;
-
-  if (!auth.loginUrl || !auth.usernameSelector || !auth.passwordSelector || !auth.submitSelector) {
-    throw new Error('ui-login mode requires loginUrl, usernameSelector, passwordSelector, submitSelector');
-  }
-
-  const username = process.env[auth.usernameEnv || 'E2E_USERNAME'];
-  const password = process.env[auth.passwordEnv || 'E2E_PASSWORD'];
-  if (!username || !password) {
-    throw new Error(`Missing credentials env vars (${auth.usernameEnv || 'E2E_USERNAME'}, ${auth.passwordEnv || 'E2E_PASSWORD'})`);
-  }
-
-  log(`Performing UI login at ${auth.loginUrl}`);
-  await page.goto(auth.loginUrl, { waitUntil: 'networkidle', timeout: config.timeoutMs || 30000 });
-  await page.fill(auth.usernameSelector, username);
-  await page.fill(auth.passwordSelector, password);
-  await page.click(auth.submitSelector);
-  await page.waitForLoadState('networkidle');
-
-  const statePath = path.join(outDir, 'storage-state.json');
-  await context.storageState({ path: statePath });
-  log(`Saved authenticated storage state: ${statePath}`);
+function normalizePath(routePath, viewportName) {
+  const safeRoute = (routePath || 'root').replace(/[^a-zA-Z0-9-_]/g, '_') || 'root';
+  return `${safeRoute}__${viewportName}`;
 }
 
 async function main() {
   const configArg = process.argv[2] || 'browser-verify.config.json';
-  const config = readConfig(configArg);
+  const configPath = path.resolve(configArg);
+  if (!fs.existsSync(configPath)) throw new Error(`Config not found: ${configPath}`);
+  const config = readJson(configPath);
 
   runCmd('migration command', config.migrateCommand);
   runCmd('temp-user command', config.tempUserCommand);
@@ -70,100 +53,122 @@ async function main() {
   if (!baseUrl) throw new Error('baseUrl is required');
   if (!Array.isArray(config.routes) || config.routes.length === 0) throw new Error('routes[] is required');
 
-  const outDir = path.resolve(config.outputDir || 'artifacts/browser-verification');
-  const baselineDir = path.resolve(config.baselineDir || 'artifacts/browser-baseline');
-  fs.mkdirSync(outDir, { recursive: true });
+  const outputDir = path.resolve(config.outputDir || 'artifacts/browser-verification');
+  fs.mkdirSync(outputDir, { recursive: true });
+  const baselinesDir = path.resolve(config.baselinesDir || 'artifacts/browser-baselines');
+  fs.mkdirSync(baselinesDir, { recursive: true });
 
   const browser = await playwright.chromium.launch({ headless: config.headless !== false });
-  const contextOpts = {};
-  if (config.storageStatePath) contextOpts.storageState = path.resolve(config.storageStatePath);
-  if (config.viewport?.width && config.viewport?.height) contextOpts.viewport = config.viewport;
-  const context = await browser.newContext(contextOpts);
+  const contextOptions = {};
+  if (config.storageStatePath) contextOptions.storageState = path.resolve(config.storageStatePath);
+  const context = await browser.newContext(contextOptions);
 
   if (config.auth?.mode === 'session-cookie') {
-    const cookieValue = process.env[config.auth.cookieEnv || 'LOCAL_SESSION_COOKIE'];
-    if (!cookieValue) throw new Error(`Missing env var: ${config.auth.cookieEnv || 'LOCAL_SESSION_COOKIE'}`);
+    const cookieEnv = config.auth.cookieEnv || 'LOCAL_SESSION_COOKIE';
+    const cookieValue = process.env[cookieEnv];
+    if (!cookieValue) throw new Error(`Missing env var for session cookie: ${cookieEnv}`);
     await context.addCookies([{ name: config.auth.cookieName || 'session', value: cookieValue, domain: config.auth.domain || 'localhost', path: '/', httpOnly: true, secure: false, sameSite: 'Lax' }]);
   }
 
   const page = await context.newPage();
-  await maybeLoginAndSaveState(context, page, config, outDir);
+  const viewports = config.viewports?.length ? config.viewports : [{ name: 'desktop', width: 1440, height: 900 }];
+  const failOnConsoleErrors = config.failOnConsoleErrors !== false;
+  const failOnRequestFailures = config.failOnRequestFailures !== false;
+
+  const baselineManifestPath = path.join(baselinesDir, 'manifest.json');
+  const baselineManifest = fs.existsSync(baselineManifestPath) ? readJson(baselineManifestPath) : {};
+  const newManifest = { ...baselineManifest };
 
   const results = [];
-  for (const route of config.routes) {
-    const routeDef = typeof route === 'string' ? { path: route } : route;
-    const routePath = routeDef.path;
-    const url = `${baseUrl.replace(/\/$/, '')}${routePath.startsWith('/') ? '' : '/'}${routePath}`;
-    const result = { url, pass: true, checks: [], artifacts: {} };
 
-    try {
-      log(`Opening ${url}`);
-      await page.goto(url, { waitUntil: 'networkidle', timeout: config.timeoutMs || 30000 });
+  for (const vp of viewports) {
+    await page.setViewportSize({ width: vp.width, height: vp.height });
 
-      if (Array.isArray(routeDef.maskSelectors)) {
-        for (const ms of routeDef.maskSelectors) {
-          await page.locator(ms).evaluateAll(nodes => nodes.forEach(n => n.setAttribute('data-mask', 'true'))).catch(() => {});
+    for (const route of config.routes) {
+      const routePath = route.path || route;
+      const url = `${baseUrl.replace(/\/$/, '')}${routePath.startsWith('/') ? '' : '/'}${routePath}`;
+      const routeKey = normalizePath(routePath, vp.name || `${vp.width}x${vp.height}`);
+
+      const consoleErrors = [];
+      const requestFailures = [];
+      const onConsole = msg => {
+        if (msg.type() === 'error') consoleErrors.push(msg.text());
+      };
+      const onReqFail = req => requestFailures.push(req.url());
+      page.on('console', onConsole);
+      page.on('requestfailed', onReqFail);
+
+      const result = { route: routePath, url, viewport: vp, pass: true, checks: [], consoleErrors: [], requestFailures: [] };
+      log(`Opening ${url} @ ${vp.width}x${vp.height}`);
+
+      try {
+        const response = await page.goto(url, { waitUntil: 'networkidle', timeout: config.timeoutMs || 30000 });
+        result.status = response?.status?.() ?? null;
+        if (config.failOnHttpErrors !== false && result.status && result.status >= 400) {
+          result.pass = false;
+          result.checks.push({ type: 'http-status', status: result.status, ok: false });
         }
+
+        if (Array.isArray(route.requiredSelectors)) {
+          for (const sel of route.requiredSelectors) {
+            const visible = await page.locator(sel).first().isVisible({ timeout: config.selectorTimeoutMs || 5000 }).catch(() => false);
+            result.checks.push({ type: 'selector', selector: sel, visible });
+            if (!visible) result.pass = false;
+          }
+        }
+
+        if (Array.isArray(route.requiredText)) {
+          const bodyText = await page.textContent('body');
+          for (const text of route.requiredText) {
+            const found = bodyText?.includes(text) || false;
+            result.checks.push({ type: 'text', text, found });
+            if (!found) result.pass = false;
+          }
+        }
+
+        const perf = await page.evaluate(() => {
+          const nav = performance.getEntriesByType('navigation')[0];
+          return nav ? { domContentLoaded: nav.domContentLoadedEventEnd, loadEvent: nav.loadEventEnd } : {};
+        });
+        result.performance = perf;
+
+        const screenshotPath = path.join(outputDir, `${routeKey}.png`);
+        await page.screenshot({ path: screenshotPath, fullPage: true });
+        result.screenshot = screenshotPath;
+
+        const hash = sha256File(screenshotPath);
+        result.screenshotHash = hash;
+        const baselineHash = baselineManifest[routeKey];
+        if (baselineHash) {
+          const matchesBaseline = baselineHash === hash;
+          result.checks.push({ type: 'baseline-hash', routeKey, matchesBaseline });
+          if (config.failOnBaselineDiff === true && !matchesBaseline) result.pass = false;
+        }
+
+        if (config.updateBaselines === true) newManifest[routeKey] = hash;
+      } catch (err) {
+        result.pass = false;
+        result.error = String(err?.message || err);
+      } finally {
+        page.off('console', onConsole);
+        page.off('requestfailed', onReqFail);
       }
 
-      if (Array.isArray(routeDef.requiredSelectors)) {
-        for (const sel of routeDef.requiredSelectors) {
-          const visible = await page.locator(sel).first().isVisible({ timeout: config.selectorTimeoutMs || 5000 }).catch(() => false);
-          result.checks.push({ type: 'selector', selector: sel, visible });
-          if (!visible) result.pass = false;
-        }
-      }
+      result.consoleErrors = consoleErrors;
+      result.requestFailures = requestFailures;
+      if (failOnConsoleErrors && consoleErrors.length) result.pass = false;
+      if (failOnRequestFailures && requestFailures.length) result.pass = false;
 
-      if (Array.isArray(routeDef.requiredText)) {
-        const body = await page.textContent('body');
-        for (const txt of routeDef.requiredText) {
-          const found = body?.includes(txt) || false;
-          result.checks.push({ type: 'text', text: txt, found });
-          if (!found) result.pass = false;
-        }
-      }
-
-      if (Array.isArray(routeDef.requiredStyles)) {
-        for (const rule of routeDef.requiredStyles) {
-          const { selector, property, expected } = rule;
-          const actual = await page.$eval(selector, (el, prop) => getComputedStyle(el).getPropertyValue(prop), property).catch(() => null);
-          const ok = actual !== null && actual.trim() === String(expected).trim();
-          result.checks.push({ type: 'style', selector, property, expected, actual, ok });
-          if (!ok) result.pass = false;
-        }
-      }
-
-      const safe = routePath.replace(/[^a-zA-Z0-9-_]/g, '_') || 'root';
-      const png = path.join(outDir, `${safe}.png`);
-      const html = path.join(outDir, `${safe}.html`);
-
-      await page.screenshot({ path: png, fullPage: true });
-      fs.writeFileSync(html, await page.content());
-      result.artifacts.screenshot = png;
-      result.artifacts.dom = html;
-
-      // Baseline hash comparison (dependency-free)
-      if (config.compareWithBaseline) {
-        fs.mkdirSync(baselineDir, { recursive: true });
-        const baseShot = path.join(baselineDir, `${safe}.png`);
-        if (fs.existsSync(baseShot)) {
-          const same = sha256(baseShot) === sha256(png);
-          result.checks.push({ type: 'baseline-hash', baseline: baseShot, same });
-          if (!same && routeDef.failOnVisualChange) result.pass = false;
-        } else {
-          fs.copyFileSync(png, baseShot);
-          result.checks.push({ type: 'baseline-created', baseline: baseShot, created: true });
-        }
-      }
-    } catch (err) {
-      result.pass = false;
-      result.error = String(err?.message || err);
+      results.push(result);
     }
-
-    results.push(result);
   }
 
   await browser.close();
+
+  if (config.updateBaselines === true) {
+    writeJson(baselineManifestPath, newManifest);
+    log(`Updated baseline manifest: ${baselineManifestPath}`);
+  }
 
   const summary = {
     generatedAt: new Date().toISOString(),
@@ -171,20 +176,18 @@ async function main() {
     total: results.length,
     passed: results.filter(r => r.pass).length,
     failed: results.filter(r => !r.pass).length,
-    compareWithBaseline: !!config.compareWithBaseline,
     results
   };
 
-  const reportPath = path.join(outDir, 'report.json');
-  fs.writeFileSync(reportPath, JSON.stringify(summary, null, 2));
+  const reportPath = path.join(outputDir, 'report.json');
+  writeJson(reportPath, summary);
   log(`Report: ${reportPath}`);
 
   if (summary.failed > 0) {
-    log(`FAILED ${summary.failed}/${summary.total}`);
+    log(`FAILED: ${summary.failed}/${summary.total}`);
     process.exit(2);
   }
-
-  log(`PASS ${summary.passed}/${summary.total}`);
+  log(`PASS: ${summary.passed}/${summary.total}`);
 }
 
 main().catch(err => {

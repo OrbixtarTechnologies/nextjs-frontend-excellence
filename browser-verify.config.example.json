@@ -4,8 +4,12 @@
   "timeoutMs": 30000,
   "selectorTimeoutMs": 5000,
   "outputDir": "artifacts/browser-verification",
-  "baselineDir": "artifacts/browser-baseline",
-  "compareWithBaseline": true,
+  "baselinesDir": "artifacts/browser-baselines",
+  "updateBaselines": false,
+  "failOnBaselineDiff": false,
+  "failOnConsoleErrors": true,
+  "failOnRequestFailures": true,
+  "failOnHttpErrors": true,
   "migrateCommand": "npm run db:migrate",
   "tempUserCommand": "npm run db:create-temp-user",
   "auth": {
@@ -14,21 +18,21 @@
     "cookieName": "session",
     "domain": "localhost"
   },
+  "viewports": [
+    { "name": "mobile", "width": 390, "height": 844 },
+    { "name": "tablet", "width": 1024, "height": 768 },
+    { "name": "desktop", "width": 1440, "height": 900 }
+  ],
   "routes": [
     {
       "path": "/",
       "requiredSelectors": ["main", "header"],
-      "requiredText": ["Welcome"],
-      "requiredStyles": [
-        { "selector": "body", "property": "font-family", "expected": "Inter" }
-      ],
-      "failOnVisualChange": false
+      "requiredText": ["Welcome"]
     },
     {
       "path": "/dashboard",
       "requiredSelectors": ["[data-testid='dashboard-shell']", "nav"],
-      "requiredText": ["Dashboard"],
-      "failOnVisualChange": true
+      "requiredText": ["Dashboard"]
     }
   ]
 }

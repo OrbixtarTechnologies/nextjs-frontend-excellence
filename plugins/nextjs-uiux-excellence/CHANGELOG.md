@@ -1,11 +1,10 @@
 # Changelog
 
 ## 7.0.0
-- Upgraded browser verification to v2 with style assertions, DOM snapshots, baseline-hash checks, and UI-login auth mode support.
-- Added `tools/browser-verify-report.mjs` to generate HTML evidence reports.
-- Expanded browser config templates and operations/workflow docs for professional release validation.
-- Updated VS Code tasks and hooks for browser verification/report execution.
-- Bumped plugin version to 7.0.0 with verification-report keywords.
+- Upgraded browser verification to advanced mode with multi-viewport, console/request failure checks, and baseline hash comparison support.
+- Enhanced browser verifier docs/config templates and skill/agent guidance for stricter anti-false-claim validation.
+- Added VS Code task for browser baseline update workflows.
+- Bumped plugin version to 7.0.0 with advanced browser verification keywords.
 
 ## 6.0.0
 - Added auth-aware browser verification system with `tools/browser-verify.mjs` and configurable routes/auth/migration setup.

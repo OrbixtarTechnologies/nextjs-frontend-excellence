@@ -15,14 +15,11 @@ Use this skill when UI claims must be proven with real browser checks.
 3. Run browser verification tool:
    - `node tools/browser-verify.mjs browser-verify.config.json`
 4. Review screenshots/report and reject false completion claims.
-5. Generate HTML report:
-   - `node tools/browser-verify-report.mjs`
 
 ## Enforcement
 - No UI completion claim without evidence artifacts.
 - Auth-protected pages must be verified with real authenticated context.
 - Missing selectors/content must fail the check.
 
-## v2 quality checks
-- Support required style assertions and optional baseline-hash visual change detection.
-- Capture DOM snapshot artifacts for diff/debug evidence.
+- Run multi-viewport verification and optionally compare against baselines.
+- Fail verification when console/request failures indicate unstable UI behavior.
