@@ -23,6 +23,14 @@ Inspect the active repository and design a premium, truthful, maintainable front
 - Plan reusable primitives for cards, forms, tables, filters, and empty/error/loading states.
 - Guarantee accessibility and keyboard navigation in all shared patterns.
 
+## Dashboard transformation trigger
+If the user asks to create or upgrade pages into a **proper functional dashboard from scratch**:
+- Prioritize a dashboard-first architecture and do not preserve prior dashboard visual patterns by default.
+- Ask for explicit UI kit selection across supported kits, then lock architecture to that kit.
+- Ask for theme config with defaults if omitted.
+- Produce an implementation-ready plan that includes: auth routes, app shell layout, sidebar, header, and dashboard content composition mapped from existing pages.
+- Require real package installation/setup steps for the selected kit.
+
 ## Output contract
 1. Verified Frontend Facts
 2. Unknowns
