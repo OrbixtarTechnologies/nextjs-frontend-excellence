@@ -1,7 +1,7 @@
 {
   "name": "nextjs-uiux-excellence",
-  "description": "Enterprise-grade Next.js excellence plugin for broad design and architecture transformations, top UI kits, revamp-from-scratch workflows, strict scope obedience, and full AI engineering delivery.",
-  "version": "3.0.0",
+  "description": "Enterprise-grade Next.js excellence plugin with detailed docs, broad design and architecture transformations, top UI kits, revamp workflows, and strict scope obedience.",
+  "version": "3.1.0",
   "author": {
     "name": "Usman Liaqat"
   },

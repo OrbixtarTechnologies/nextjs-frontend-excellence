@@ -25,12 +25,19 @@ A production-grade plugin for building **outstanding, broad, and fully professio
 - Pre-task and post-task quality hooks.
 - MCP placeholder for future integrations.
 
-## Marketplace install
-1. Add the marketplace repository.
-2. Install `nextjs-uiux-excellence`.
+## Installation
+For full instructions see `docs/INSTALLATION.md`.
 
-## Direct install
-Install this plugin folder directly if you manage plugins manually.
+### Marketplace install
+1. Add/enable marketplace source.
+2. Install `nextjs-uiux-excellence`.
+3. Reload runtime if needed.
+
+### Direct/local install
+1. Copy plugin folder to your local plugins directory.
+2. Preserve folder structure (`agents/`, `skills/`, `guides/`, `docs/`, `plugin.json`, `hooks.json`).
+3. Reload plugin registry/runtime.
+4. Verify plugin discovery.
 
 ## Recommended usage sequence
 1. Run **product-requirements-owner** to refine scope.
@@ -77,3 +84,17 @@ This plugin now includes an explicit architecture-and-strategy layer for large r
 - pick one architecture blueprint deliberately
 - produce migration map (keep/replace/deprecate/new)
 - execute by priority slices while preserving truthful status reporting
+
+
+## Documentation index
+- `docs/INSTALLATION.md` — full setup and verification steps.
+- `docs/QUICKSTART.md` — fastest activation workflow.
+- `docs/USE_CASES.md` — common real-world implementation scenarios.
+- `docs/FILE_STRUCTURE.md` — maintainers guide to plugin layout.
+- `CHANGELOG.md` — version history and release highlights.
+
+## Practical use cases
+- Whole-app revamp with new design strategy and architecture blueprint.
+- Enterprise dashboard modernization and consistency hardening.
+- Marketing/product UI unification with shared design tokens.
+- Partial-scope redesign with strict boundaries and out-of-scope reporting.
