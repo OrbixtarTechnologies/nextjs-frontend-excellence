@@ -1,62 +1,69 @@
-# Next.js UI/UX Excellence Copilot Plugin
+# Next.js Frontend Excellence + Full AI Engineering Team System
 
-A production-grade GitHub Copilot CLI plugin for **elite Next.js UI/UX delivery**.
+A production-grade GitHub Copilot plugin and governance pack for building an **elite AI software team** around modern Next.js applications.
 
-This plugin packages:
-- **Custom agents** for frontend architecture, delivery, and design-system governance
-- **Multi-file skills** for repo bootstrapping, premium frontend execution, design-system governance, and UX state integrity
-- **Hooks** to remind Copilot to verify truthfulness, states, accessibility, and system coherence
-- **MCP placeholder config** for future repo-specific design/documentation integrations
+## What this repository now contains
 
-## What this plugin is designed to enforce
-- Truthfulness over appearance
-- No fake pages, fake data, or fake dashboards
-- No hallucinated APIs, schemas, fields, or product behavior
-- Premium launch-ready UI quality
-- Strong spacing, hierarchy, typography, responsiveness, and accessibility
-- Reuse of existing project design systems where strong
-- Standardization around top-tier UI foundations when a repo is weak or fragmented
+### Plugin core
+- `plugin.json`
+- `hooks.json`
+- `.mcp.json`
 
-## Preferred UI foundation
-When a repo needs a stronger UI base, this plugin biases toward:
-1. **shadcn/ui**
-2. **Radix UI primitives**
-3. **Tailwind CSS**
-4. **lucide-react**
-5. Carefully selected custom primitives only when justified
-
-## Included agents
+### Agents
 - `nextjs-ui-architect`
 - `nextjs-ui-builder`
 - `nextjs-design-system-curator`
+- `product-requirements-owner`
+- `solutions-architect`
+- `backend-systems-engineer`
+- `qa-test-architect`
+- `security-engineer`
+- `devops-sre-engineer`
+- `principal-code-reviewer`
+- `technical-documentation-lead`
 
-## Included skills
+### Skills
 - `nextjs-ui-system-generator`
 - `premium-frontend-delivery`
 - `design-system-governance`
 - `ux-state-integrity`
+- `backend-excellence-system`
+- `api-contract-design`
+- `db-migration-safety`
+- `test-strategy-system`
+- `security-review-system`
+- `release-readiness-system`
+- `repo-copilot-audit`
+- `full-ai-team-bootstrap`
 
-## Install
-Install with Copilot CLI from a local path or repository, according to your Copilot CLI setup.
+### Team governance docs
+- `docs/TEAM_OPERATING_MODEL.md`
+- `docs/HANDOFF_MATRIX.md`
+- `docs/REPO_BOOTSTRAP_PROMPTS.md`
+- `docs/QUALITY_BAR.md`
 
-## Core usage pattern
-Inside a Next.js repository, ask Copilot to:
-- inspect the repository
-- determine the minimum justified repo-local frontend Copilot assets
-- generate those repo-level instructions, agents, prompts, and skills only where justified
+## Core philosophy
+- truthfulness over appearance
+- no fake implementation
+- no hallucinated APIs, schemas, permissions, or workflows
+- premium UI quality
+- strong backend contract discipline
+- explicit testing, security, and release readiness
+- repo-aware generation of local Copilot assets
 
-Example request:
+## Main usage patterns
 
-```text
-Use the nextjs-ui-architect agent and the nextjs-ui-system-generator skill.
-Inspect this repository and generate the minimum strong set of repo-local frontend Copilot assets required for premium, truthful, production-grade UI delivery.
-Do not invent repo facts. Generate only what the repository justifies.
-```
+### 1. Bootstrap a repository-local Copilot system
+Use the `full-ai-team-bootstrap` skill together with the `solutions-architect` and `nextjs-ui-architect` agents.
 
-## Expected outcomes
-This plugin is intended to help Copilot behave more like:
-- a principal frontend architect
-- a staff-plus UI engineer
-- a senior UX systems thinker
+### 2. Do premium frontend work
+Use `nextjs-ui-builder` + `premium-frontend-delivery` + `ux-state-integrity`.
 
-rather than a generic code assistant.
+### 3. Do backend/system work
+Use `backend-systems-engineer` + `backend-excellence-system` + `api-contract-design` + `db-migration-safety` when relevant.
+
+### 4. Audit a repo’s Copilot setup
+Use `repo-copilot-audit`.
+
+## Outcome
+This repository is designed to help Copilot operate less like a general assistant and more like a coordinated senior engineering team.
