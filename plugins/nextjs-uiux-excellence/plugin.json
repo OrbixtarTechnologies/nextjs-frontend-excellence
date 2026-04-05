@@ -1,7 +1,7 @@
 {
   "name": "nextjs-uiux-excellence",
-  "description": "Global Next.js UI/UX excellence plugin with full AI engineering team workflows, premium design-system standards, repo-aware generation, and truthful product delivery rules.",
-  "version": "1.0.0",
+  "description": "Enterprise-grade Next.js excellence plugin with detailed docs, broad design and architecture transformations, top UI kits, revamp workflows, and strict scope obedience.",
+  "version": "3.1.0",
   "author": {
     "name": "Usman Liaqat"
   },
@@ -19,7 +19,18 @@
     "plugin",
     "shadcn",
     "radix",
-    "tailwind"
+    "tailwind",
+    "mui",
+    "antd",
+    "chakra",
+    "mantine",
+    "layout-systems",
+    "design-system",
+    "revamp",
+    "scope-aware",
+    "architecture",
+    "blueprints",
+    "revamp-mode"
   ],
   "agents": "agents/",
   "skills": [
