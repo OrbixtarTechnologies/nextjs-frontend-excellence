@@ -20,6 +20,8 @@ A production-grade plugin for building **outstanding, broad, and fully professio
 - Truthful delivery standards (no fake actions, no fake data, complete loading/empty/error states).
 
 ## Includes
+- 15 specialized professional agents.
+- 11 operational skills for system generation, delivery, audit, backend rigor, team bootstrap, PLAN.md architecture orchestration, and industry-grade task amplification.
 - 14 specialized professional agents.
 - 10 operational skills for system generation, delivery, audit, backend rigor, team bootstrap, and PLAN.md architecture orchestration.
 - Pre-task and post-task quality hooks.
@@ -92,6 +94,12 @@ This plugin now includes an explicit architecture-and-strategy layer for large r
 - `docs/USE_CASES.md` — common real-world implementation scenarios.
 - `docs/FILE_STRUCTURE.md` — maintainers guide to plugin layout.
 - `CHANGELOG.md` — version history and release highlights.
+
+## Industry task amplification
+- Agent: `agents/industry-task-amplifier.agent.md`
+- Skill: `skills/industry-task-amplifier/SKILL.md`
+- Prompt template: `skills/industry-task-amplifier/PROMPT_TEMPLATE.md`
+- Purpose: convert short or basic user requests into detailed 99/100 quality implementation briefs with architecture, UX, states, validation, and rollout guidance.
 
 ## PLAN.md architecture orchestrator
 - Agent: `agents/plan-md-system-architect.agent.md`

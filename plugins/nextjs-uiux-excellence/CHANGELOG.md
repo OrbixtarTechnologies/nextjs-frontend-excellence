@@ -1,5 +1,10 @@
 # Changelog
 
+## 7.2.0
+- Added `industry-task-amplifier` agent to transform user implementation requests into industry-grade execution briefs.
+- Added `industry-task-amplifier` skill and prompt template for high-detail task expansion.
+- Updated plugin metadata and docs to surface task amplification capability.
+
 ## 7.1.0
 - Added `plan-md-system-architect` agent for PLAN.md-driven system architecture generation.
 - Added `plan-md-architecture-orchestrator` skill with workflow for route/page extraction, feature decisions, and phased implementation planning.
