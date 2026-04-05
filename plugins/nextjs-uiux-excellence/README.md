@@ -20,8 +20,8 @@ A production-grade plugin for building **outstanding, broad, and fully professio
 - Truthful delivery standards (no fake actions, no fake data, complete loading/empty/error states).
 
 ## Includes
-- 10 specialized professional agents.
-- 5 operational skills for system generation, delivery, audit, backend rigor, and team bootstrap.
+- 14 specialized professional agents.
+- 10 operational skills for system generation, delivery, audit, backend rigor, team bootstrap, and PLAN.md architecture orchestration.
 - Pre-task and post-task quality hooks.
 - MCP placeholder for future integrations.
 
@@ -92,6 +92,12 @@ This plugin now includes an explicit architecture-and-strategy layer for large r
 - `docs/USE_CASES.md` — common real-world implementation scenarios.
 - `docs/FILE_STRUCTURE.md` — maintainers guide to plugin layout.
 - `CHANGELOG.md` — version history and release highlights.
+
+## PLAN.md architecture orchestrator
+- Agent: `agents/plan-md-system-architect.agent.md`
+- Skill: `skills/plan-md-architecture-orchestrator/SKILL.md`
+- Prompt template: `skills/plan-md-architecture-orchestrator/PROMPT_TEMPLATE.md`
+- Purpose: parse `PLAN.md`, derive full route/page architecture, decide page-level features, and generate phased execution plans.
 
 ## Practical use cases
 - Whole-app revamp with new design strategy and architecture blueprint.
