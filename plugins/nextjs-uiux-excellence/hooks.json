@@ -2,11 +2,11 @@
   "hooks": [
     {
       "event": "pre-task",
-      "command": "echo '[nextjs-uiux-excellence] Verify route ownership, design-system alignment, contract truth, and state completeness before editing.'"
+      "command": "echo '[nextjs-uiux-excellence] Pre-check scope + latest docs, then run integrity baseline: bash tools/validate-plugin-integrity.sh'"
     },
     {
       "event": "post-task",
-      "command": "echo '[nextjs-uiux-excellence] Confirm: no fake data, no dead actions, no missing loading/empty/error states, no weak completion claims.'"
+      "command": "echo '[nextjs-uiux-excellence] Run post-verification before completion: bash tools/post-verification-suite.sh'"
     }
   ]
 }
