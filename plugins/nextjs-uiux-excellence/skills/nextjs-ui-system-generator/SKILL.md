@@ -12,3 +12,11 @@ Inspect the active repository and generate only the repo-level frontend Copilot 
 - layout archetypes (marketing/app/docs/auth)
 - shared primitives and token strategy
 - route-level implementation roadmap
+
+
+## Broader architecture output
+For major transformations, include:
+- selected blueprint + strategy references
+- route-group and module migration map
+- design token and component governance plan
+- risk register for phased rollout

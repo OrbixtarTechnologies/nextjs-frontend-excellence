@@ -1,7 +1,7 @@
 {
   "name": "nextjs-uiux-excellence",
-  "description": "Enterprise-grade Next.js excellence plugin for outstanding professional apps with top UI kits, robust layout systems, revamp-from-scratch workflows, strict scope obedience, and full AI engineering workflows.",
-  "version": "2.1.0",
+  "description": "Enterprise-grade Next.js excellence plugin for broad design and architecture transformations, top UI kits, revamp-from-scratch workflows, strict scope obedience, and full AI engineering delivery.",
+  "version": "3.0.0",
   "author": {
     "name": "Usman Liaqat"
   },
@@ -27,7 +27,10 @@
     "layout-systems",
     "design-system",
     "revamp",
-    "scope-aware"
+    "scope-aware",
+    "architecture",
+    "blueprints",
+    "revamp-mode"
   ],
   "agents": "agents/",
   "skills": [

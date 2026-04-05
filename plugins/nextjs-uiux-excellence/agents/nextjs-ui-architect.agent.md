@@ -43,3 +43,11 @@ Scope parsing must be strict:
 - "whole app" means global redesign across all user-visible surfaces.
 - "partial" requests must be bounded to explicit routes/modules/components.
 - Percentage scope (e.g., 40%) must map to a concrete prioritized slice and be reported.
+
+
+## Blueprint + strategy selection
+For broad redesigns, explicitly select:
+- one architecture blueprint from `guides/ARCHITECTURE_BLUEPRINTS.md`
+- one design strategy from `guides/DESIGN_STRATEGIES.md`
+
+Then map that choice to route groups, shared components, data boundaries, and migration phases.

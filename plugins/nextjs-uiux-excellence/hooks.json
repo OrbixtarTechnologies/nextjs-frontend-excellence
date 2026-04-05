@@ -2,11 +2,11 @@
   "hooks": [
     {
       "event": "pre-task",
-      "command": "echo '[nextjs-uiux-excellence] Determine scope literally (whole app/module/page/%). If revamp is requested, switch to redesign-from-scratch strategy before editing.'"
+      "command": "echo '[nextjs-uiux-excellence] Parse scope literally; if broad upgrade/revamp is requested, choose architecture blueprint + design strategy before edits.'"
     },
     {
       "event": "post-task",
-      "command": "echo '[nextjs-uiux-excellence] Confirm delivered scope exactly matches user wording and revamp intent; report any intentionally out-of-scope items.'"
+      "command": "echo '[nextjs-uiux-excellence] Verify delivered scope, chosen blueprint consistency, and truthful progress across all requested surfaces.'"
     }
   ]
 }

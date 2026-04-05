@@ -64,3 +64,16 @@ Always take user wording literally for scope:
 - If percent/portion is given (e.g., 30%, 70%), implement only that requested coverage and report what is intentionally out of scope.
 
 Never downscope silently. If scope is ambiguous, force explicit interpretation before implementation.
+
+
+## Broader design + architecture layer (v3)
+This plugin now includes an explicit architecture-and-strategy layer for large redesigns:
+- `guides/ARCHITECTURE_BLUEPRINTS.md` for system-level structure patterns.
+- `guides/DESIGN_STRATEGIES.md` for visual/product strategy selection.
+- `skills/broader-design-architecture-overhaul/SKILL.md` for full-spectrum transformation workflow.
+
+### Expected behavior on broad upgrade requests
+- pick one design strategy deliberately
+- pick one architecture blueprint deliberately
+- produce migration map (keep/replace/deprecate/new)
+- execute by priority slices while preserving truthful status reporting
