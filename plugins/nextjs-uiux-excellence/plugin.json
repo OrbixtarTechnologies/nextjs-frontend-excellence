@@ -1,0 +1,30 @@
+{
+  "name": "nextjs-uiux-excellence",
+  "description": "Global Next.js UI/UX excellence plugin with full AI engineering team workflows, premium design-system standards, repo-aware generation, and truthful product delivery rules.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Usman Liaqat"
+  },
+  "license": "MIT",
+  "keywords": [
+    "nextjs",
+    "ui",
+    "ux",
+    "frontend",
+    "backend",
+    "qa",
+    "security",
+    "devops",
+    "copilot",
+    "plugin",
+    "shadcn",
+    "radix",
+    "tailwind"
+  ],
+  "agents": "agents/",
+  "skills": [
+    "skills/"
+  ],
+  "hooks": "hooks.json",
+  "mcpServers": ".mcp.json"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "orbixtar-copilot-marketplace",
+  "owner": {
+    "name": "Orbixtar Technologies",
+    "email": "plugins@orbixtar.local"
+  },
+  "metadata": {
+    "description": "Orbixtar Copilot plugin marketplace for elite engineering workflows and Next.js excellence.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "nextjs-uiux-excellence",
+      "description": "Next.js UI/UX excellence and full AI engineering team system for GitHub Copilot.",
+      "version": "1.0.0",
+      "source": "plugins/nextjs-uiux-excellence"
+    }
+  ]
+}
