@@ -50,7 +50,10 @@ async function verifyRoute(page, route, options) {
       if (Array.isArray(route.requiredSelectors)) {
         for (const sel of route.requiredSelectors) {
           const loc = page.locator(sel).first();
-          const visible = await loc.isVisible({ timeout: options.selectorTimeoutMs }).catch(() => false);
+          const visible = await loc
+            .waitFor({ state: 'visible', timeout: options.selectorTimeoutMs })
+            .then(() => true)
+            .catch(() => false);
           result.checks.push({ viewport: vp.name, type: 'selector', selector: sel, visible });
           if (!visible) result.pass = false;
         }
