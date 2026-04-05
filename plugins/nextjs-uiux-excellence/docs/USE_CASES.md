@@ -34,3 +34,19 @@ Focus:
 - strict scope obedience
 - dependency-aware local changes
 - explicit out-of-scope reporting
+
+## 5) PLAN.md-driven system architecture
+Use when a project provides a `PLAN.md` and you need complete architecture planning before implementation.
+
+Focus:
+- parse PLAN.md into route and page inventory
+- define feature decisions per page
+- generate phased execution with risks and validation
+
+## 6) Task-to-industry-grade prompt amplification
+Use when users provide minimal requests (e.g., "design xyz page") and you need professional execution-level detail.
+
+Focus:
+- preserve original intent
+- expand to architecture + UX + engineering requirements
+- produce acceptance criteria, phases, and validation checklist
