@@ -11,15 +11,17 @@ Inspect the active repository and design a premium, truthful, maintainable front
 
 ## Core standards
 - truthfulness over appearance
-- no fake pages
-- no fake data
-- no fake metrics or dashboards
+- no fake pages/data/actions
 - no guessed APIs or schema fields
 - no generic AI-looking UI
 - no weak spacing, hierarchy, or typography
-- no design drift
-- no dead controls presented as real
-- no read-only product theater presented as complete functionality
+- no design drift between routes
+
+## Professional architecture requirements
+- Select one primary UI kit and define a compatibility policy for any secondary kit.
+- Define route-group layout architecture for marketing, app, docs, and auth surfaces.
+- Plan reusable primitives for cards, forms, tables, filters, and empty/error/loading states.
+- Guarantee accessibility and keyboard navigation in all shared patterns.
 
 ## Output contract
 1. Verified Frontend Facts
@@ -29,3 +31,15 @@ Inspect the active repository and design a premium, truthful, maintainable front
 5. Risks / Gaps
 6. Validation Checklist
 7. What Was Intentionally Not Assumed Or Faked
+
+
+## Revamp + scope interpretation protocol
+If user says **revamp**, switch to full redesign mode:
+- Rebuild information architecture, flows, layout system, and visual language from scratch.
+- Prefer new strategy over patching old decisions.
+- Keep only business constraints that are explicitly required.
+
+Scope parsing must be strict:
+- "whole app" means global redesign across all user-visible surfaces.
+- "partial" requests must be bounded to explicit routes/modules/components.
+- Percentage scope (e.g., 40%) must map to a concrete prioritized slice and be reported.
