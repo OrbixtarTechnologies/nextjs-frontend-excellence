@@ -20,3 +20,12 @@ For major transformations, include:
 - route-group and module migration map
 - design token and component governance plan
 - risk register for phased rollout
+
+## Dashboard upgrade behavior (explicit request)
+If the request explicitly says to create a dashboard or upgrade existing pages into a proper dashboard from scratch, the generated assets must enforce this workflow:
+1. Ask the user to choose one UI kit from supported kits.
+2. Ask for theme config for that kit, with sane defaults pre-filled.
+3. Install and configure the selected kit for real.
+4. Build auth pages + dashboard app shell (sidebar/header/content area).
+5. Re-home existing page content into the new dashboard structure while preserving real behavior.
+6. Ignore previous visual style choices unless the user explicitly asks to retain them.
