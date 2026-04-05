@@ -2,6 +2,7 @@
   "name": "nextjs-uiux-excellence",
   "description": "Next-version professional Next.js UI/UX excellence system by Orbixtar Technologies with advanced auth-aware browser verification, multi-viewport baseline checks, live docs validation, and enterprise release tooling.",
   "version": "7.2.0",
+  "version": "7.1.0",
   "author": {
     "name": "Orbixtar Technologies"
   },
@@ -51,6 +52,7 @@
     "prompt-enhancement",
     "industry-grade-prompts",
     "implementation-expansion"
+    "planning-orchestration"
   ],
   "agents": "agents/",
   "skills": [

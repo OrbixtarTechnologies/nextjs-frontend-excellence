@@ -22,6 +22,8 @@ A production-grade plugin for building **outstanding, broad, and fully professio
 ## Includes
 - 15 specialized professional agents.
 - 11 operational skills for system generation, delivery, audit, backend rigor, team bootstrap, PLAN.md architecture orchestration, and industry-grade task amplification.
+- 14 specialized professional agents.
+- 10 operational skills for system generation, delivery, audit, backend rigor, team bootstrap, and PLAN.md architecture orchestration.
 - Pre-task and post-task quality hooks.
 - MCP placeholder for future integrations.
 
