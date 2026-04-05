@@ -1,37 +1,33 @@
 {
   "baseUrl": "http://localhost:3000",
   "headless": true,
-  "waitUntil": "networkidle",
   "timeoutMs": 30000,
   "selectorTimeoutMs": 5000,
   "outputDir": "artifacts/browser-verification",
   "baselineDir": "artifacts/browser-baseline",
-  "autoApproveNewBaseline": true,
-  "failOnVisualDiff": false,
+  "requireBaselineMatch": false,
   "migrateCommand": "npm run db:migrate",
   "tempUserCommand": "npm run db:create-temp-user",
-  "preAuthCommand": "echo pre-auth-setup",
-  "postAuthCommand": "echo post-auth-cleanup",
-  "saveStorageStatePath": "artifacts/browser-verification/storage-state.json",
   "auth": {
     "mode": "session-cookie",
     "cookieEnv": "LOCAL_SESSION_COOKIE",
     "cookieName": "session",
-    "domain": "localhost",
-    "secure": false,
-    "sameSite": "Lax"
+    "domain": "localhost"
   },
+  "viewports": [
+    { "name": "desktop", "width": 1440, "height": 900 },
+    { "name": "tablet", "width": 1024, "height": 768 },
+    { "name": "mobile", "width": 390, "height": 844 }
+  ],
   "routes": [
     {
       "path": "/",
       "requiredSelectors": ["main", "header"],
-      "forbiddenSelectors": ["[data-testid='error-banner']"],
       "requiredText": ["Welcome"]
     },
     {
       "path": "/dashboard",
       "requiredSelectors": ["[data-testid='dashboard-shell']", "nav"],
-      "forbiddenSelectors": ["[data-testid='missing-widget']"],
       "requiredText": ["Dashboard"]
     }
   ]

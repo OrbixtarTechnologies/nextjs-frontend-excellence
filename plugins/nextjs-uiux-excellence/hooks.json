@@ -6,7 +6,7 @@
     },
     {
       "event": "post-task",
-      "command": "echo '[nextjs-uiux-excellence] Run post-verification + next-version browser checks (auth, selectors, forbidden selectors, baseline/report evidence).'"
+      "command": "echo '[nextjs-uiux-excellence] Run post-verification + browser auth/visual verification (and baseline checks for UI regressions) before completion.'"
     }
   ]
 }

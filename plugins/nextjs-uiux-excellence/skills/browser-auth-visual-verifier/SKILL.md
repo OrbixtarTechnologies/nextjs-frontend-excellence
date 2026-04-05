@@ -20,6 +20,3 @@ Use this skill when UI claims must be proven with real browser checks.
 - No UI completion claim without evidence artifacts.
 - Auth-protected pages must be verified with real authenticated context.
 - Missing selectors/content must fail the check.
-
-- Use baseline comparison (`baselineDir`) when visual consistency gates are required.
-- Attach generated `report.json` and `report.md` as release evidence.

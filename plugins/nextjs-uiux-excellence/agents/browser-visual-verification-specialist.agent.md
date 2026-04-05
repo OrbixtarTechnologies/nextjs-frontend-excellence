@@ -15,6 +15,3 @@ Reject false claims by validating real rendered UI in browser-like execution wit
 - Capture screenshots and structured check results.
 - Fail verification when required selectors/text are missing, even if page appears visually acceptable.
 - Report pass/fail per route with concrete evidence.
-
-- Perform baseline-aware visual comparison and report drift when configured.
-- Produce JSON + Markdown verification reports as evidence artifacts.

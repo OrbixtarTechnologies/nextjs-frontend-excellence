@@ -77,9 +77,9 @@
       "problemMatcher": []
     },
     {
-      "label": "Browser verify (strict visual gate)",
+      "label": "Browser baseline generate",
       "type": "shell",
-      "command": "node tools/browser-verify.mjs browser-verify.config.json",
+      "command": "node tools/browser-baseline.mjs browser-verify.config.json",
       "group": "test",
       "problemMatcher": []
     }

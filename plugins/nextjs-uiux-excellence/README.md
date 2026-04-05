@@ -122,6 +122,7 @@ This plugin now includes an explicit architecture-and-strategy layer for large r
 ## Browser visual verifier (auth-aware)
 - Agent: `agents/browser-visual-verification-specialist.agent.md`
 - Skill: `skills/browser-auth-visual-verifier/SKILL.md`
+- Skill: `skills/design-regression-guardian/SKILL.md`
 - Tool: `node tools/browser-verify.mjs browser-verify.config.json`
+- Baseline: `node tools/browser-baseline.mjs browser-verify.config.json`
 - Policy: reject false claims using screenshot + selector/text evidence for both public and auth-protected pages.
-- Supports baseline comparisons and markdown/json verification evidence artifacts.

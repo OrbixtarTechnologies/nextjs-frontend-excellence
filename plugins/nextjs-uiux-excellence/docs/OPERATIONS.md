@@ -8,6 +8,7 @@ Guarantee each release is professional, verifiable, and aligned with policy.
 2. Full post-verification: `bash tools/post-verification-suite.sh`
 3. Optional report: `bash tools/generate-plugin-report.sh`
 4. Browser auth/visual verification: `node tools/browser-verify.mjs browser-verify.config.json`
+5. Baseline refresh (when intended UI changes): `node tools/browser-baseline.mjs browser-verify.config.json`
 
 ## Release gate
 A release should not be marked complete unless post-verification passes and version/changelog are synchronized.

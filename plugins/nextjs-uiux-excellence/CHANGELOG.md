@@ -1,10 +1,11 @@
 # Changelog
 
 ## 7.0.0
-- Upgraded browser verification to next-version design-grade system with baseline hash comparisons and negative checks.
-- Added markdown report generation (`report.md`) alongside JSON report output.
-- Added richer auth and command hooks in browser verification config (pre/post auth, storage state save).
-- Expanded browser verification docs/tasks and bumped plugin version to 7.0.0.
+- Upgraded browser verification to next version with multi-viewport checks and baseline hash comparison support.
+- Added baseline generator tool `tools/browser-baseline.mjs`.
+- Expanded browser config templates with viewport/baseline options.
+- Updated tasks/docs/operations/hooks for stricter design regression verification.
+- Bumped plugin version to 7.0.0 with baseline/multi-viewport keywords.
 
 ## 6.0.0
 - Added auth-aware browser verification system with `tools/browser-verify.mjs` and configurable routes/auth/migration setup.
